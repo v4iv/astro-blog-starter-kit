@@ -4,12 +4,15 @@ import "@fontsource/geist-sans"
 import "@fontsource-variable/geist-mono"
 import "@fontsource-variable/playfair-display"
 
+import { getLangFromUrl } from "$lib/i18n/utils"
 import Header from "$lib/components/Header.astro"
 import Footer from "$lib/components/Footer.astro"
+
+const lang = getLangFromUrl(Astro.url)
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

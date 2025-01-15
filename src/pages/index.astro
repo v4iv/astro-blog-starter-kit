@@ -1,11 +1,46 @@
 ---
+import { getCollection } from "astro:content"
+
 import Layout from "$lib/layouts/Layout.astro"
+
+const articles = (await getCollection("blog")).sort(
+  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+)
 ---
 
 <Layout>
   <main class="mx-auto min-h-screen w-full max-w-screen-md">
-    <div class="p-3 md:px-0">
-      <h1>Hello, World!</h1>
-    </div>
+    <ul class="p-3 md:px-0">
+      {
+        articles.map((article) => {
+          const date = new Date(article.data.published).getDate()
+          const month = new Date(article.data.published).toLocaleString(
+            "default",
+            { month: "short" },
+          )
+          const year = new Date(article.data.published).getFullYear()
+
+          return (
+            <Fragment>
+              <li class="flex flex-col space-y-3 border-b py-5 first:pt-0 last:border-none">
+                <small class="underline decoration-red-500 underline-offset-4">
+                  {`${month} ${date}, ${year}`}
+                </small>
+
+                <a href={`/article/${article.id}`}>
+                  <h2 class="font-serif text-4xl transition-colors hover:text-muted-foreground">
+                    {article.data.title}
+                  </h2>
+                </a>
+
+                <p class="text-muted-foreground">
+                  by <span class="uppercase">{article.data.author}</span>
+                </p>
+              </li>
+            </Fragment>
+          )
+        })
+      }
+    </ul>
   </main>
 </Layout>

@@ -1,0 +1,42 @@
+---
+import Prose from "$lib/components/Prose.astro"
+import Layout from "$lib/layouts/Layout.astro"
+import { type CollectionEntry, getCollection } from "astro:content"
+import { render } from "astro:content"
+
+export async function getStaticPaths() {
+  const articles = await getCollection("blog")
+  return articles.map((article) => ({
+    params: { slug: article.id },
+    props: article,
+  }))
+}
+
+type Props = CollectionEntry<"blog">
+
+const article = Astro.props
+const date = new Date(article.data.published).getDate()
+const month = new Date(article.data.published).toLocaleString('default', { month: 'long' })
+const year = new Date(article.data.published).getFullYear()
+const { Content } = await render(article)
+---
+
+<Layout>
+  <main class="mx-auto w-full max-w-screen-md">
+    <article class="space-y-4 px-3 py-5 md:px-0">
+      <header class="flex flex-col space-y-3">
+        <h1 class="font-serif text-6xl">{article.data.title}</h1>
+
+        <p class="text-muted-foreground">
+          by <span class="uppercase">{article.data.author}</span>
+        </p>
+
+        <small>{`${month} ${date}, ${year}`}</small>
+      </header>
+
+      <Prose>
+        <Content />
+      </Prose>
+    </article>
+  </main>
+</Layout>
