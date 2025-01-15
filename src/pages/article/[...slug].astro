@@ -16,22 +16,30 @@ type Props = CollectionEntry<"blog">
 
 const article = Astro.props
 const date = new Date(article.data.published).getDate()
-const month = new Date(article.data.published).toLocaleString('default', { month: 'long' })
+const month = new Date(article.data.published).toLocaleString("default", {
+  month: "long",
+})
 const year = new Date(article.data.published).getFullYear()
-const { Content } = await render(article)
+const { Content, remarkPluginFrontmatter } = await render(article)
 ---
 
 <Layout>
   <main class="mx-auto w-full max-w-screen-md">
-    <article class="space-y-4 px-3 py-5 md:px-0">
+    <article class="space-y-4 p-3 md:px-0">
       <header class="flex flex-col space-y-3">
+        <small class="underline decoration-red-500 underline-offset-4">
+          {`${month} ${date}, ${year}`} &bull; <span
+            class="uppercase text-muted-foreground"
+          >
+            {remarkPluginFrontmatter.minutesRead}</span
+          >
+        </small>
+
         <h1 class="font-serif text-6xl">{article.data.title}</h1>
 
         <p class="text-muted-foreground">
           by <span class="uppercase">{article.data.author}</span>
         </p>
-
-        <small>{`${month} ${date}, ${year}`}</small>
       </header>
 
       <Prose>

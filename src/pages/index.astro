@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 
 import Layout from "$lib/layouts/Layout.astro"
+import { articleReadingTime, getExcerpt } from "$lib/utils"
 
 const articles = (await getCollection("blog")).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
@@ -19,23 +20,29 @@ const articles = (await getCollection("blog")).sort(
             { month: "short" },
           )
           const year = new Date(article.data.published).getFullYear()
+          const readingTime = articleReadingTime(article.body)
+          const excerpt = getExcerpt(article.body, 200)
 
           return (
             <Fragment>
               <li class="flex flex-col space-y-3 border-b py-5 first:pt-0 last:border-none">
-                <small class="underline decoration-red-500 underline-offset-4">
-                  {`${month} ${date}, ${year}`}
-                </small>
-
                 <a href={`/article/${article.id}`}>
                   <h2 class="font-serif text-4xl transition-colors hover:text-muted-foreground">
                     {article.data.title}
                   </h2>
                 </a>
 
-                <p class="text-muted-foreground">
-                  by <span class="uppercase">{article.data.author}</span>
-                </p>
+                <p>{excerpt}</p>
+
+                <div>
+                  <p class="text-muted-foreground">
+                    by <span class="uppercase">{article.data.author}</span>
+                  </p>
+
+                  <small>
+                    {`${month} ${date}, ${year}`} &bull; {readingTime}
+                  </small>
+                </div>
               </li>
             </Fragment>
           )
