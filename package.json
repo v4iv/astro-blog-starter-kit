@@ -7,6 +7,8 @@
   "author": "Vaibhav Sharma<vaibhavsharmaatwork@gmail.com>",
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
+    "dev:netlify": "TINA_PUBLIC_IS_LOCAL=true netlify dev",
+    "dev:netlify-prod": "TINA_PUBLIC_IS_LOCAL=false netlify dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
