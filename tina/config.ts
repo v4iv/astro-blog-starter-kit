@@ -1,22 +1,19 @@
-import { defineConfig, LocalAuthProvider } from "tinacms"
-import {
-  TinaUserCollection,
-  UsernamePasswordAuthJSProvider,
-} from "tinacms-authjs/dist/tinacms"
+import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
-  "main"
-
-const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true"
+  "main";
 
 export default defineConfig({
   branch,
-  // This is the url to your graphql endpoint
-  contentApiUrlOverride: "/api/tina/gql",
+
+  // Get this from tina.io
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
+  // Get this from tina.io
+  token: process.env.TINA_TOKEN,
 
   build: {
     outputFolder: "admin",
@@ -28,26 +25,21 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
-  // When isLocal is true, the CMS will not require authentication
-  authProvider: isLocal
-    ? new LocalAuthProvider()
-    : new UsernamePasswordAuthJSProvider(),
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
-      { ...TinaUserCollection, path: "src/content/users" },
       {
         name: "articles",
         label: "Articles",
         path: "src/content/articles",
         ui: {
           filename: {
-            showFirst: true,
-          },
+            showFirst:true
+          }
         },
         defaultItem: () => {
           return {
-            author: "Vaibhav Sharma",
+            author: 'Vaibhav Sharma',
           }
         },
         fields: [
@@ -80,4 +72,4 @@ export default defineConfig({
       },
     ],
   },
-})
+});
