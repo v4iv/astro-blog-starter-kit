@@ -3,6 +3,7 @@ import "$lib/styles/app.css"
 import "@fontsource/geist-sans"
 import "@fontsource-variable/geist-mono"
 import "@fontsource-variable/playfair-display"
+import { ClientRouter } from 'astro:transitions'
 
 import { getLangFromUrl } from "$lib/i18n/utils"
 import Header from "$lib/components/Header.astro"
@@ -19,6 +20,7 @@ const lang = getLangFromUrl(Astro.url)
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Blog</title>
+    <ClientRouter />
   </head>
   <body>
     <Header />
