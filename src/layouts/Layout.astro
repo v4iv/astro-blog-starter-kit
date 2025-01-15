@@ -3,6 +3,9 @@ import "$lib/styles/app.css"
 import "@fontsource/geist-sans"
 import "@fontsource-variable/geist-mono"
 import "@fontsource-variable/playfair-display"
+
+import Header from "$lib/components/Header.astro"
+import Footer from "$lib/components/Footer.astro"
 ---
 
 <!doctype html>
@@ -15,6 +18,8 @@ import "@fontsource-variable/playfair-display"
     <title>Blog</title>
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>

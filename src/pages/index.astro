@@ -1,17 +1,11 @@
 ---
-import logo from "$lib/assets/logo.svg?raw"
 import Layout from "$lib/layouts/Layout.astro"
 ---
 
 <Layout>
-  <main class="flex min-h-screen w-full">
-    <div class="mx-auto flex items-center justify-center space-x-3">
-      <Fragment set:html={logo} />
-      <p
-        class="truncate break-words bg-gradient-to-r from-emerald-400 via-violet-600 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:text-4xl"
-      >
-        Hello, World!
-      </p>
+  <main class="mx-auto min-h-screen w-full max-w-screen-md">
+    <div class="p-3 md:px-0">
+      <h1>Hello, World!</h1>
     </div>
   </main>
 </Layout>

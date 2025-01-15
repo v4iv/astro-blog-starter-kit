@@ -7,7 +7,7 @@ export const showDefaultLang = false
 
 export const ui = {
   en: {
-    'navbar.title': 'Astro Blog',
-    'footer.copyright': `Copyright ©️ ${new Date().getFullYear()} • All Rights Reserved.`
+    'navbar.title': 'BLOG',
+    'footer.copyright': `Copyright © ${new Date().getFullYear()} • All Rights Reserved.`
   },
 } as const

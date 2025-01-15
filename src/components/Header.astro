@@ -1,0 +1,21 @@
+---
+import logo from "$lib/assets/logo.svg?raw"
+import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<nav class="mx-auto w-full max-w-screen-md">
+  <div class="flex items-center px-3 py-5 md:px-0">
+    <a href="/" class="flex grow items-center space-x-2">
+      <Fragment set:html={logo} />
+
+      <p
+        class="truncate break-words bg-gradient-to-r from-emerald-400 via-violet-600 to-cyan-400 bg-clip-text text-2xl font-bold tracking-wider text-transparent"
+      >
+        {t("navbar.title")}
+      </p>
+    </a>
+  </div>
+</nav>
