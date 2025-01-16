@@ -22,6 +22,28 @@ const t = useTranslations(lang)
     <meta name="generator" content={Astro.generator} />
     <title>{t("meta.title")}</title>
     <meta name="description" content={t("meta.description")} />
+    <script is:inline>
+      const darkModePreference = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      )
+
+      // Necessary for view transitions
+      document.addEventListener("astro:after-swap", () => {
+        if (darkModePreference.matches) {
+          document.documentElement.classList.add("dark")
+        } else {
+          document.documentElement.classList.remove("dark")
+        }
+      })
+
+      darkModePreference.addEventListener("change", (e) => {
+        if (e.matches) {
+          document.documentElement.classList.add("dark")
+        } else {
+          document.documentElement.classList.remove("dark")
+        }
+      })
+    </script>
     <ClientRouter />
   </head>
   <body class="min-h-screen bg-background antialiased">
