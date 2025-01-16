@@ -18,7 +18,7 @@ export default defineConfig({
   branch,
 
   // This is the url to your graphql endpoint
-  contentApiUrlOverride: "/api/tina/gql",
+  contentApiUrlOverride: "http://localhost:4001/graphql",
 
   build: {
     outputFolder: "admin",

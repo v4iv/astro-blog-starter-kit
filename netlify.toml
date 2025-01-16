@@ -3,6 +3,6 @@
 
 [[redirects]]
   from = "/api/tina/*"
-  to = "/.netlify/functions/tina"
+  to = "/.netlify/functions/tina/:splat"
   status = 200
   force = true

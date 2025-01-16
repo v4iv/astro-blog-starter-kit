@@ -8,11 +8,11 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "dev:netlify": "TINA_PUBLIC_IS_LOCAL=true netlify dev",
-    "dev:netlify-prod": "TINA_PUBLIC_IS_LOCAL=false tinacms build && netlify dev",
+    "dev:netlify-prod": "TINA_PUBLIC_IS_LOCAL=false tinacms build --local && netlify dev",
     "build": "tinacms build && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "clean": "rimraf .astro/",
+    "clean": "rimraf .astro/ .netlify/",
     "lint": "eslint \"src/**/*.{ts,js,astro}\"",
     "format": "exec prettier . --write"
   },
