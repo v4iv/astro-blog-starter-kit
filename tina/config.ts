@@ -21,8 +21,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "media",
-      publicFolder: "public",
+      mediaRoot: "src/assets/media",
+      publicFolder: "",
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
@@ -31,7 +31,7 @@ export default defineConfig({
       {
         name: "articles",
         label: "Articles",
-        path: "src/content/articles",
+        path: "content/articles",
         ui: {
           filename: {
             showFirst:true

@@ -6,7 +6,7 @@ author: Vaibhav Sharma
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. *Ut non lorem diam*. Quisque vulputate nibh sodales eros pretium tincidunt. Aenean porttitor efficitur convallis. Nulla sagittis finibus convallis. Phasellus in fermentum quam, eu egestas `tortor`. Maecenas ac mollis leo. Integer maximus eu nisl vel sagittis.
 
-![Rivendell](/media/6y5DJ0E.jpeg "Rivendell")
+![](/src/assets/media/6y5DJ0E.jpeg)
 
 > Suspendisse facilisis, mi ac scelerisque interdum, ligula ex imperdiet felis, a posuere eros justo nec sem. Nullam laoreet accumsan metus, sit amet tincidunt orci egestas nec.
 

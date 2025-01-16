@@ -3,13 +3,14 @@ import "$lib/styles/app.css"
 import "@fontsource/geist-sans"
 import "@fontsource-variable/geist-mono"
 import "@fontsource-variable/playfair-display"
-import { ClientRouter } from 'astro:transitions'
+import { ClientRouter } from "astro:transitions"
 
-import { getLangFromUrl } from "$lib/i18n/utils"
+import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
 import Header from "$lib/components/Header.astro"
 import Footer from "$lib/components/Footer.astro"
 
 const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <!doctype html>
@@ -19,7 +20,8 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Blog</title>
+    <title>{t("meta.title")}</title>
+    <meta name="description" content={t("meta.description")} />
     <ClientRouter />
   </head>
   <body class="min-h-screen bg-background antialiased">
