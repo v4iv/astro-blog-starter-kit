@@ -14,6 +14,35 @@ Pellentesque ut aliquet ante, at tristique nunc. **Donec non massa nibh**. Ut po
 
 ```typescript
 import love from 'heart';
+
+// Using 'typeof' to infer types
+const person = { name: "Alice", age: 30 };
+type PersonType = typeof person;  // { name: string; age: number }
+
+// 'satisfies' to ensure a type matches but allows more specific types
+type Animal = { name: string };
+const dog = { name: "Buddy", breed: "Golden Retriever" } satisfies Animal;
+
+// Generics with 'extends' and default values
+function identity<T extends number | string = string>(arg: T): T {
+  return arg;
+}
+
+let str = identity();  // Default type is string
+let num = identity(42);  // T inferred as number
+
+// 'extends' with interface and class
+interface HasLength {
+  length: number;
+}
+
+function logLength<T extends HasLength = string>(arg: T): void {
+  console.log(arg.length);
+}
+
+logLength("Hello");    // OK: string has length (default is string)
+logLength([1, 2, 3]);  // OK: array has length
+// logLength(123);      // Error: number doesn't have length
 ```
 
 Mauris sit amet ornare ligula, blandit consequat risus. Duis malesuada pellentesque lectus, non feugiat turpis eleifend a. Nullam tempus ante et diam pretium, ac faucibus ligula interdum.

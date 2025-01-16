@@ -16,6 +16,9 @@ export default defineConfig({
   })],
   markdown: {
     remarkPlugins: [remarkReadingTime],
+    shikiConfig: {
+      theme: "houston"
+    }
   },
   experimental: {
     responsiveImages: true,

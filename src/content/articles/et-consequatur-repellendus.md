@@ -16,12 +16,17 @@ Lorem ipsum dolor sit amet. Ab animi sunt est dolores ipsum Ut sint est natus as
 
 Quo porro omnis ut nihil expedita. Est perspiciatis saepe et necessitatibus autem est molestiae possimus. Cum rerum commodi? Est voluptatum perspiciatis qui culpa magnam et voluptas laudantium.
 
-```html
-< !--Nam tenetur deleniti sed veniam natus qui minima debitis! -- >
-<omnis>Et repellendus iusto.</omnis>
-<facere>Qui quia quos.</facere>
-<maxime>Eos vero perspiciatis aut consequatur assumenda.</maxime>
-<qui>Non tempora magnam!</qui>
+```python
+def fib(n):    # write Fibonacci series up to n
+    """Print a Fibonacci series up to n."""
+    a, b = 0, 1
+    while a < n:
+        print(a, end=' ')
+        a, b = b, a+b
+    print()
+
+# Now call the function we just defined:
+fib(2000)
 ```
 
 ## Est maiores Quis At accusantium nobis ut tenetur quibusdam.

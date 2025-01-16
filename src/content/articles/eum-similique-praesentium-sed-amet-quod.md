@@ -29,10 +29,16 @@ Id corrupti sequi. Aut galisum iste ab doloremque saepe non praesentium beatae. 
 Ut galisum modi [Non ipsa sed omnis dolores ut delectus eaque](https://www.loremipzum.com/) qui provident aperiam et blanditiis laboriosam. Ut vitae laudantium et nisi fugaIn deserunt nam similique modi ut laudantium ipsam ad optio eligendi. In numquam alias Qui laboriosam sit optio incidunt aut velit dicta aut optio laboriosam aut veritatis quas? 
 
 ```html
-<!-- Est laborum quis in nisi dolores cum velit laborum. -->
-<est>Cum sunt quae?</est>
-<dicta>Et quos odit ea eligendi natus.</dicta>
-<molestias>Ut voluptatem mollitia ut consequuntur neque.</molestias>
+<section class="preview">
+    <video controls
+    src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+    poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+    width="620">
+
+    Sorry, your browser doesn't support embedded videos.  Time to upgrade!
+
+    </video>
+</section>
 ```
 
 ##### Eos veniam aspernatur ab assumenda eaque quo enim quasi. 
