@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  repo: v4iv/astro-blog-starter-kit
+  branch: main
+
+local_backend: true
+media_folder: src/assets/media
+public_folder: src/assets/media
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Articles" # Used in the UI
+    folder: "src/content/articles" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "published", widget: "datetime" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          default: "Vaibhav Sharma",
+        }
+      - { label: "Body", name: "body", widget: "markdown" }
