@@ -6,7 +6,7 @@ author: Vaibhav Sharma
 
 Lorem ipsum dolor sit amet. Ab animi sunt est dolores ipsum Ut sint est natus assumenda ut nisi doloremque. Et magnam quaeratAut placeat vel fugiat praesentium rem provident velit. Quo consectetur quaerat quo quia eaqueaut voluptas!
 
-![Fangorn Forest](/src/assets/media/bLxcjh3.png "Fangorn Forest")
+![Fangorn Forest](/media/bLxcjh3.png "Fangorn Forest")
 
 1. Sit quasi aspernatur aut tempore ratione!
 2. Ut ratione pariatur ea aliquam veniam et nostrum nesciunt cum iure sint.
