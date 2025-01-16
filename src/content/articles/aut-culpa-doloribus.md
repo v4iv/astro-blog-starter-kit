@@ -3,12 +3,13 @@ title: Aut culpa doloribus ea cupiditate nesciunt
 published: 2025-01-09T18:30:00.000Z
 author: Vaibhav Sharma
 ---
-
 Lorem ipsum dolor sit amet. 33 voluptas quisquamvel tempore id consequatur odio. Id tenetur explicabo sed facere suntquo quae est necessitatibus recusandae quo quia galisum.
 
 1. Non galisum dolorum ut perspiciatis quod.
 2. Qui recusandae maxime aut asperiores earum.
 3. Ex saepe dolorem sit galisum voluptas qui autem nulla.
+
+![Falls of Rauros](src/assets/media/3tkfymp.png "Falls of Rauros")
 
 ```html
 <!-- Ex omnis officiis. -->
