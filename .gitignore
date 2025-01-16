@@ -26,3 +26,5 @@ pnpm-debug.log*
 .fleet/
 
 node_modules
+# Local Netlify folder
+.netlify
