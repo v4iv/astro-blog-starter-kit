@@ -2,6 +2,7 @@
 title: Et consequatur repellendus aut soluta exercitationem
 published: 2025-01-14T18:30:00.000Z
 author: Vaibhav Sharma
+slug: et-consequatur-repellendus
 ---
 
 Lorem ipsum dolor sit amet. Ab animi sunt est dolores ipsum Ut sint est natus assumenda ut nisi doloremque. Et magnam quaeratAut placeat vel fugiat praesentium rem provident velit. Quo consectetur quaerat quo quia eaqueaut voluptas!

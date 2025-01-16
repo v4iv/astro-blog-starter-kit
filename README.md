@@ -2,7 +2,7 @@
 
 # Astro Blog Starter Kit
 
-A minimal blog starter powered by Astro, Tailwind CSS and Decap CMS
+A minimal blog starter powered by [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com) and [Decap CMS](https://decapcms.org)
 
 ## Commands
 
