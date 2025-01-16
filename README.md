@@ -1,5 +1,7 @@
 # Astro Blog Starter Kit
 
+A minimal blog starter powered by Astro, Tailwind CSS and Decap CMS
+
 ## Commands
 
 All commands are run from the root of the project, from a terminal:

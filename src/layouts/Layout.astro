@@ -19,17 +19,23 @@ const t = useTranslations(lang)
         "(prefers-color-scheme: dark)",
       )
 
-      // Necessary for view transitions
-      document.addEventListener("astro:after-swap", () => {
-        if (darkModePreference.matches) {
+      if (darkModePreference.matches) {
+        document.documentElement.classList.add("dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+      }
+
+      darkModePreference.addEventListener("change", (e) => {
+        if (e.matches) {
           document.documentElement.classList.add("dark")
         } else {
           document.documentElement.classList.remove("dark")
         }
       })
 
-      darkModePreference.addEventListener("change", (e) => {
-        if (e.matches) {
+      // Necessary for view transitions
+      document.addEventListener("astro:after-swap", () => {
+        if (darkModePreference.matches) {
           document.documentElement.classList.add("dark")
         } else {
           document.documentElement.classList.remove("dark")

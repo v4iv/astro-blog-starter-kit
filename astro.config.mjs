@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [tailwind({
     applyBaseStyles: false,
   }), sitemap({
-    filter: (page) => page !== `${process.env.URL || "http://localhost:4321"}/admin`,
+    filter: (page) => page !== `${process.env.URL || "http://localhost:4321"}/admin/`,
   })],
   markdown: {
     remarkPlugins: [remarkReadingTime],
