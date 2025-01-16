@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b318e22e-1c5b-43f8-9ae9-b7f371b2fb38/deploy-status)](https://app.netlify.com/sites/waybove/deploys)
+
 # Astro Blog Starter Kit
 
 A minimal blog starter powered by Astro, Tailwind CSS and Decap CMS
