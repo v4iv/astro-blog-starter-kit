@@ -1,4 +1,5 @@
 ---
+import rss from "$lib/assets/rss.svg?raw"
 import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
@@ -6,10 +7,18 @@ const t = useTranslations(lang)
 ---
 
 <footer class="mx-auto w-full max-w-screen-md border-t">
-    <div class="px-3 py-10 md:px-0">
-      <p class="flex w-full justify-center text-muted-foreground">
-        {t("footer.copyright")}
-      </p>
+  <div class="space-y-2 px-3 py-10 md:px-0">
+    <p class="flex w-full justify-center text-muted-foreground">
+      {t("footer.copyright")}
+    </p>
+
+    <div class="flex w-full justify-center">
+      <a
+        href="/rss.xml"
+        class="inline-flex size-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+      >
+        <Fragment set:html={rss} />
+      </a>
     </div>
+  </div>
 </footer>
-  

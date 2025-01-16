@@ -1,11 +1,8 @@
 ---
-import "$lib/styles/app.css"
-import "@fontsource/geist-sans"
-import "@fontsource-variable/geist-mono"
-import "@fontsource-variable/playfair-display"
 import { ClientRouter } from "astro:transitions"
 
 import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
+import SEO from "$lib/components/SEO.astro"
 import Header from "$lib/components/Header.astro"
 import Footer from "$lib/components/Footer.astro"
 
@@ -16,12 +13,7 @@ const t = useTranslations(lang)
 <!doctype html>
 <html lang={lang}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{t("meta.title")}</title>
-    <meta name="description" content={t("meta.description")} />
+    <SEO title={t("meta.title")} description={t("meta.description")} />
     <script is:inline>
       const darkModePreference = window.matchMedia(
         "(prefers-color-scheme: dark)",
