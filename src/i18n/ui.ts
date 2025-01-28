@@ -1,4 +1,4 @@
-import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants"
+import { APP_NAME, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants"
 
 export const languages = {
   en: "English",
@@ -11,7 +11,7 @@ export const ui = {
   en: {
     "meta.title": SITE_TITLE,
     "meta.description": SITE_DESCRIPTION,
-    "navbar.title": "BLOG",
+    "navbar.title": APP_NAME,
     "footer.rss": "RSS",
     "footer.copyright": `Copyright © ${new Date().getFullYear()} • All Rights Reserved.`,
     "404.page-not-found": "404 | Page Not Found",
