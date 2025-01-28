@@ -1,21 +1,23 @@
 ---
-import logo from "@/assets/logo.svg?raw"
+import LogoIcon from "@/assets/logo.svg"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<nav class="mx-auto w-full max-w-screen-md">
-  <div class="flex items-center px-3 py-5 md:px-0">
-    <a href="/" class="flex w-full items-center justify-center space-x-2">
-      <Fragment set:html={logo} />
+<nav class="mx-auto w-full max-w-screen-md border-b">
+  <div class="px-3 py-5">
+    <div class="flex justify-center">
+      <a href="/" class="flex items-center space-x-2">
+        <LogoIcon />
 
-      <p
-        class="truncate break-words bg-gradient-to-r from-emerald-400 via-violet-600 to-cyan-400 bg-clip-text text-2xl font-bold tracking-wider text-transparent"
-      >
-        {t("navbar.title")}
-      </p>
-    </a>
+        <p
+          class="truncate break-words bg-gradient-to-r from-emerald-400 via-violet-600 to-cyan-400 bg-clip-text text-2xl font-bold tracking-wider text-transparent"
+        >
+          {t("navbar.title")}
+        </p>
+      </a>
+    </div>
   </div>
 </nav>

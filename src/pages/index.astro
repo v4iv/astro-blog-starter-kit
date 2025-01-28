@@ -10,7 +10,7 @@ const articles = (await getCollection("articles")).sort(
 
 <Layout>
   <main class="mx-auto min-h-screen w-full max-w-screen-md">
-    <ul class="p-3 md:px-0">
+    <ul class="px-3 py-5">
       {
         articles.map(async (article) => {
           const { remarkPluginFrontmatter } = await render(article)

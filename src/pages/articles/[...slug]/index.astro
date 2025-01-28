@@ -1,8 +1,9 @@
 ---
-import Prose from "@/components/Prose.astro"
+import { type CollectionEntry, getCollection, render } from "astro:content"
+
 import Layout from "@/layouts/Layout.astro"
-import { type CollectionEntry, getCollection } from "astro:content"
-import { render } from "astro:content"
+import Prose from "@/components/Prose.astro"
+import Share from "@/components/Share.astro"
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles")
@@ -15,34 +16,48 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"articles">
 
 const article = Astro.props
+
 const pubDate = new Date(article.data.pubDate).toLocaleString("default", {
   month: "long",
   day: "numeric",
   year: "numeric",
 })
-const { Content, remarkPluginFrontmatter } = await render(article)
+
+const {
+  Content,
+  remarkPluginFrontmatter: { minutesRead },
+} = await render(article)
 ---
 
 <Layout>
   <main class="mx-auto w-full max-w-screen-md">
-    <article class="space-y-4 p-3 md:px-0">
+    <article class="px-3 py-5">
       <header class="flex flex-col space-y-3">
-        <small class="underline decoration-red-500 underline-offset-4">
+        <small class="underline decoration-red-500 underline-offset-8">
           {pubDate} &bull; <span class="uppercase text-muted-foreground">
-            {remarkPluginFrontmatter.minutesRead}</span
+            {minutesRead}</span
           >
         </small>
 
-        <h1 class="font-serif text-6xl">{article.data.title}</h1>
+        <h1 class="text-wrap break-words font-serif text-4xl md:text-6xl">
+          {article.data.title}
+        </h1>
 
         <p class="text-muted-foreground">
           by <span class="uppercase">{article.data.author}</span>
         </p>
+
+        <Share
+          title={article.data.title}
+          pathname={`/articles/${article.data.slug}`}
+        />
       </header>
 
-      <Prose>
-        <Content />
-      </Prose>
+      <div class="px-3 py-5">
+        <Prose>
+          <Content />
+        </Prose>
+      </div>
     </article>
   </main>
 </Layout>

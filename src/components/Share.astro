@@ -1,0 +1,107 @@
+---
+import LinkIcon from "@/assets/link.svg"
+import ShareIcon from "@/assets/share.svg"
+import RedditIcon from "@/assets/reddit.svg"
+import BlueskyIcon from "@/assets/bluesky.svg"
+import FacebookIcon from "@/assets/facebook.svg"
+import WhatsAppIcon from "@/assets/whatsapp.svg"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+interface Props {
+  title: string
+  pathname: string
+}
+
+const { title, pathname } = Astro.props
+
+const link = new URL(pathname, Astro.site) as unknown as string
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<astro-share data-title={title} data-link={link}>
+  <div class="flex items-center gap-2">
+    <a
+      aria-label={t("share.bluesky")}
+      href={`https://bsky.app/intent/compose?text=${encodeURIComponent(`${title} ${link}`)}`}
+      class="hidden items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+    >
+      <BlueskyIcon class="size-4 fill-[#0285FF]" />
+    </a>
+
+    <a
+      aria-label={t("share.whatsapp")}
+      href={`https://wa.me/?text=${encodeURIComponent(`${title} ${link}`)}`}
+      class="hidden items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+    >
+      <WhatsAppIcon class="size-4 fill-[#25D366]" />
+    </a>
+
+    <a
+      aria-label={t("share.reddit")}
+      href={`http://www.reddit.com/submit?url=${link}&title=${encodeURIComponent(title)}`}
+      class="hidden items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+    >
+      <RedditIcon class="size-4 fill-[#FF4500]" />
+    </a>
+
+    <a
+      aria-label={t("share.facebook")}
+      href={`https://www.facebook.com/sharer.php?u=${encodeURIComponent(`${title} ${link}`)}`}
+      class="hidden items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:inline-flex"
+    >
+      <FacebookIcon class="size-4 text-[#0866FF]" />
+    </a>
+
+    <button
+      id="copy-to-clipboard"
+      aria-label={t("share.copy-url")}
+      class="inline-flex items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+    >
+      <LinkIcon class="size-4" />
+    </button>
+
+    <button
+      id="open-share-sheet"
+      aria-label={t("share.sharesheet")}
+      class="inline-flex items-center justify-center rounded-full border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 md:hidden"
+    >
+      <ShareIcon class="size-4" />
+    </button>
+  </div>
+</astro-share>
+
+<script>
+  class Share extends HTMLElement {
+    connectedCallback() {
+      const title = this.dataset.title || ""
+      const link = this.dataset.link || ""
+
+      const copyToClipboard = document.getElementById("copy-to-clipboard")
+      const openShareSheet = document.getElementById("open-share-sheet")
+
+      copyToClipboard?.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(link)
+          alert("Link Copied!")
+        } catch (err) {
+          console.log(err)
+        }
+      })
+      openShareSheet?.addEventListener("click", async () => {
+        try {
+          await navigator.share({
+            title: title,
+            text: title,
+            url: link,
+          })
+        } catch (err) {
+          console.log(err)
+        }
+      })
+    }
+  }
+
+  customElements.define("astro-share", Share)
+</script>

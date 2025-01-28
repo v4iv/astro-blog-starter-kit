@@ -1,5 +1,5 @@
 ---
-import rss from "@/assets/rss.svg?raw"
+import RSSIcon from "@/assets/rss.svg"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
@@ -7,18 +7,20 @@ const t = useTranslations(lang)
 ---
 
 <footer class="mx-auto w-full max-w-screen-md border-t">
-  <div class="space-y-2 px-3 py-10 md:px-0">
-    <p class="flex w-full justify-center text-muted-foreground">
-      {t("footer.copyright")}
-    </p>
+  <div class="flex items-center px-3 py-5">
+    <div class="grow">
+      <p class="font-mono text-muted-foreground">
+        {t("footer.copyright")}
+      </p>
+    </div>
 
-    <div class="flex w-full justify-center">
+    <div>
       <a
         href="/rss.xml"
-        aria-label="RSS"
-        class="inline-flex size-10 items-center justify-center whitespace-nowrap rounded-md border border-input bg-background text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+        aria-label={t("footer.rss")}
+        class="inline-flex items-center justify-center rounded-md border border-input bg-background p-2 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
       >
-        <Fragment set:html={rss} />
+        <RSSIcon class="size-4" />
       </a>
     </div>
   </div>

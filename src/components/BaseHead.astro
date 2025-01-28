@@ -3,6 +3,8 @@ import "@/styles/app.css"
 import "@fontsource/geist-sans"
 import "@fontsource-variable/geist-mono"
 import "@fontsource-variable/playfair-display"
+import geistSansWoff2 from "@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff2?url"
+import playfairDisplayWoff2 from "@fontsource-variable/playfair-display/files/playfair-display-latin-ext-wght-normal.woff2?url"
 
 interface Props {
   title: string
@@ -27,6 +29,22 @@ const { title, description, image = "/logo.jpg" } = Astro.props
   href={new URL("rss.xml", Astro.site)}
 />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Preload Critical Fonts -->
+<link
+  rel="preload"
+  as="font"
+  type="font/woff2"
+  href={geistSansWoff2}
+  crossorigin="anonymous"
+/>
+<link
+  rel="preload"
+  as="font"
+  type="font/woff2"
+  href={playfairDisplayWoff2}
+  crossorigin="anonymous"
+/>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
