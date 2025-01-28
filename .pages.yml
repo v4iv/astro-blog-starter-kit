@@ -1,6 +1,6 @@
 media:
   input: src/assets/media
-  output: /src/assets/media
+  output: src/assets/media
 content:
   - name: articles
     label: Articles
