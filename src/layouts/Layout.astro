@@ -1,10 +1,10 @@
 ---
 import { ClientRouter } from "astro:transitions"
 
-import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
-import SEO from "$lib/components/SEO.astro"
-import Header from "$lib/components/Header.astro"
-import Footer from "$lib/components/Footer.astro"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import BaseHead from "@/components/BaseHead.astro"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -13,7 +13,7 @@ const t = useTranslations(lang)
 <!doctype html>
 <html lang={lang}>
   <head>
-    <SEO title={t("meta.title")} description={t("meta.description")} />
+    <BaseHead title={t("meta.title")} description={t("meta.description")} />
     <script is:inline>
       const darkModePreference = window.matchMedia(
         "(prefers-color-scheme: dark)",

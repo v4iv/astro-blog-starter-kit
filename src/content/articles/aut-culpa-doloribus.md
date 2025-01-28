@@ -1,6 +1,7 @@
 ---
 title: Aut culpa doloribus ea cupiditate nesciunt
-published: 2025-01-09T18:30:00.000Z
+description: Ex saepe dolorem sit galisum voluptas qui autem nulla. Qui recusandae maxime aut asperiores earum.
+pubDate: 2025-01-09
 author: Vaibhav Sharma
 slug: aut-culpa-doloribus
 ---

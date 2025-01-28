@@ -1,0 +1,20 @@
+media:
+  input: src/assets/media
+  output: /src/assets/media
+content:
+  - name: articles
+    label: Articles
+    type: collection
+    path: src/content/articles
+    filename: "{primary}.md"
+    primary: slug
+    view:
+      fields: [title, pubDate]
+      sort: [ pubDate, title ]
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: pubDate, label: Date, type: date, required: true }
+      - { name: author, label: Author, type: string, required: true }
+      - { name: body, label: Body, type: rich-text, required: true }

@@ -1,6 +1,6 @@
 ---
-import logo from "$lib/assets/logo.svg?raw"
-import { getLangFromUrl, useTranslations } from "$lib/i18n/utils"
+import logo from "@/assets/logo.svg?raw"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

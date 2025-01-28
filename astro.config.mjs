@@ -1,29 +1,30 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config"
+import { loadEnv } from "vite"
+import sitemap from "@astrojs/sitemap"
+import tailwind from "@astrojs/tailwind"
 
-import tailwind from '@astrojs/tailwind';
-import { remarkReadingTime } from './src/remark-plugins/remark-reading-time.mjs';
+import { readingTime } from "./src/plugins/remark/reading-time.mjs"
 
-import sitemap from '@astrojs/sitemap';
+const { URL } = loadEnv(import.meta.env.MODE, process.cwd(), "")
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.URL || "http://localhost:4321",
-  integrations: [tailwind({
-    applyBaseStyles: false,
-  }), sitemap({
-    filter: (page) => page !== `${process.env.URL || "http://localhost:4321"}/admin/`,
-  })],
+  site: URL,
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    sitemap(),
+  ],
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [readingTime],
     shikiConfig: {
-      theme: "houston"
-    }
+      theme: "houston",
+    },
   },
   experimental: {
     responsiveImages: true,
+    contentIntellisense: true,
   },
-  prefetch: {
-    defaultStrategy: 'viewport'
-  }
-});
+})

@@ -1,4 +1,4 @@
-import { ui, defaultLang, showDefaultLang } from '$lib/i18n/ui'
+import { ui, defaultLang, showDefaultLang } from '@/i18n/ui'
 
 export function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/')

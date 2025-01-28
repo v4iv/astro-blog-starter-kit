@@ -1,6 +1,7 @@
 ---
 title: Eum similique praesentium sed amet quod?
-published: 2025-01-04T18:30:00.000Z
+description: Est blanditiis consequuntur sit placeat deseruntea sint sed sapiente voluptas.
+pubDate: 2025-01-04
 author: Vaibhav Sharma
 slug: eum-similique-praesentium
 ---

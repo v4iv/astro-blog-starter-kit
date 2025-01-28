@@ -1,11 +1,10 @@
 ---
 import { getCollection, render } from "astro:content"
 
-import Layout from "$lib/layouts/Layout.astro"
-import { getExcerpt } from "$lib/utils"
+import Layout from "@/layouts/Layout.astro"
 
-const articles = (await getCollection("blog")).sort(
-  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
+const articles = (await getCollection("articles")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 )
 ---
 
@@ -15,24 +14,25 @@ const articles = (await getCollection("blog")).sort(
       {
         articles.map(async (article) => {
           const { remarkPluginFrontmatter } = await render(article)
-          const date = new Date(article.data.published).getDate()
-          const month = new Date(article.data.published).toLocaleString(
+          const pubDate = new Date(article.data.pubDate).toLocaleString(
             "default",
-            { month: "short" },
+            {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            },
           )
-          const year = new Date(article.data.published).getFullYear()
-          const excerpt = getExcerpt(article.body, 200)
 
           return (
             <Fragment>
               <li class="flex flex-col space-y-3 border-b py-5 first:pt-0 last:border-none">
-                <a href={`/article/${article.id}`}>
+                <a href={`/articles/${article.data.slug}`}>
                   <h2 class="font-serif text-4xl transition-colors hover:text-muted-foreground">
                     {article.data.title}
                   </h2>
                 </a>
 
-                <p>{excerpt}</p>
+                <p>{article.data.description}</p>
 
                 <div>
                   <p class="text-muted-foreground">
@@ -40,7 +40,8 @@ const articles = (await getCollection("blog")).sort(
                   </p>
 
                   <small>
-                    {`${month} ${date}, ${year}`} &bull; {remarkPluginFrontmatter.minutesRead}
+                    {pubDate} &bull;
+                    {remarkPluginFrontmatter.minutesRead}
                   </small>
                 </div>
               </li>

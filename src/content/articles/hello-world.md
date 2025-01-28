@@ -1,6 +1,7 @@
 ---
 title: 'Hello, World!'
-published: 2024-12-31T18:30:00.000Z
+description: Fusce pharetra ligula a felis porttitor, at mollis ipsum maximus. Donec quam tortor, vehicula a magna sit amet, tincidunt dictum enim.
+pubDate: 2024-12-31
 author: Vaibhav Sharma
 slug: hello-world
 ---

@@ -1,6 +1,7 @@
 ---
 title: Et consequatur repellendus aut soluta exercitationem
-published: 2025-01-14T18:30:00.000Z
+description: Rem galisum deleniti et voluptas ipsum est necessitatibus nostrum. Aut magni omnis ea exercitationem autem.
+pubDate: 2025-01-14
 author: Vaibhav Sharma
 slug: et-consequatur-repellendus
 ---

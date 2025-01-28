@@ -1,4 +1,4 @@
-import { SITE_DESCRIPTION, SITE_TITLE } from "$lib/constants"
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants"
 
 export const languages = {
   en: "English",
