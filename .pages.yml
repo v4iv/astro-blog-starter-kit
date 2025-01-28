@@ -7,8 +7,8 @@ content:
     type: collection
     path: src/content/articles
     filename: "{primary}.md"
-    primary: slug
     view:
+      primary: slug
       fields: [title, pubDate]
       sort: [ pubDate, title ]
     fields:
