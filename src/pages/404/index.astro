@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<Layout>
+<Layout title={t("404.page-not-found")}>
   <main
     class="mx-auto flex min-h-screen w-full max-w-screen-md items-center justify-center"
   >

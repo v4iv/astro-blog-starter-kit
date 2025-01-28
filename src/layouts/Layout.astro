@@ -6,6 +6,14 @@ import BaseHead from "@/components/BaseHead.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+}
+
+const { title, description, image = "/banner.jpg" } = Astro.props
+
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
@@ -13,7 +21,11 @@ const t = useTranslations(lang)
 <!doctype html>
 <html lang={lang}>
   <head>
-    <BaseHead title={t("meta.title")} description={t("meta.description")} />
+    <BaseHead
+      title={title ?? t("meta.title")}
+      description={description ?? t("meta.description")}
+      image={image}
+    />
     <script is:inline>
       const darkModePreference = window.matchMedia(
         "(prefers-color-scheme: dark)",
